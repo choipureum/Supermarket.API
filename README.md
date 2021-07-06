@@ -1,2 +1,2 @@
-# Supermarket.API
+# Supermarket.API - extensions
 Supermarket.API
