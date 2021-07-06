@@ -1,4 +1,5 @@
 ﻿using Supermarket.API.Domain.Models;
+using Supermarket.API.Domain.Services.Communication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,12 @@ namespace Supermarket.API.Domain.Services
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Category>> ListAsync();
+
+        /// <summary>
+        /// response message
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        Task<SaveCategoryResponse> SaveAsync(Category category);
     }
 }

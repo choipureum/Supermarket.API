@@ -21,20 +21,11 @@ namespace Supermarket.API.Persistence.Repositories
         {  
             return await _context.Categories.ToListAsync();
         }
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+        public async Task AddAsync(Category category)
+        {
+            await _context.Categories.AddAsync(category);
         }
+
     }
 }
