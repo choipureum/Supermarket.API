@@ -11,3 +11,36 @@ dotnet run
 Navigate to https://localhost:5001/api/categories to check if the API is working. If you see a HTTPS security error, just add an exception to see the results.
 
 Navigate to https://localhost:5001/swagger to check the API documentation.
+
+# Architecture
+'''
+D:.
+├─.github
+│  └─ISSUE_TEMPLATE
+└─src
+    ├─bin
+    │  ├─Debug
+    │  │  └─netcoreapp2.1
+    │  └─Release
+    │      └─netcoreapp2.1
+    ├─Controllers
+    ├─Domain
+    │  ├─Models
+    │  ├─Repositories
+    │  └─Services
+    │      └─Communication
+    ├─Extensions
+    ├─Mapping
+    ├─obj
+    │  ├─Debug
+    │  │  └─netcoreapp2.1
+    │  └─Release
+    │      └─netcoreapp2.1
+    ├─Persistence
+    │  ├─Contexts
+    │  └─Repositories
+    ├─Properties
+    ├─Resources
+    ├─Services
+    └─wwwroot
+'''
