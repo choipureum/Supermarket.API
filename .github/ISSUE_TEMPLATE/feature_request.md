@@ -8,5 +8,5 @@ assignees: ''
 ---
 
 ## 목적
--[ ] : 기능1
+- [ ] : 기능1
 - resolved : #num
