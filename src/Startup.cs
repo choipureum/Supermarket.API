@@ -11,7 +11,7 @@ using Supermarket.API.Domain.Services;
 using Supermarket.API.Mapping;
 using Supermarket.API.Persistence.Contexts;
 using Supermarket.API.Persistence.Repositories;
-
+using Supermarket.API.Services;
 
 namespace Supermarket.API
 {
@@ -27,6 +27,7 @@ namespace Supermarket.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMemoryCache();
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -34,6 +35,9 @@ namespace Supermarket.API
             });
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //Auto Mapper COnfigurations
             var mappingConfig = new MapperConfiguration(cfg =>
@@ -43,8 +47,6 @@ namespace Supermarket.API
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            services.AddMvc();
-            
         }
 
 

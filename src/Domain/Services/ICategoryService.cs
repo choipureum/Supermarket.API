@@ -16,10 +16,23 @@ namespace Supermarket.API.Domain.Services
         Task<IEnumerable<Category>> ListAsync();
 
         /// <summary>
-        /// response message
+        /// category 등록
         /// </summary>
         /// <param name="category"></param>
         /// <returns></returns>
-        Task<SaveCategoryResponse> SaveAsync(Category category);
+        Task<CategoryResponse> SaveAsync(Category category);
+        /// <summary>
+        /// category 수정
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="category"></param>
+        /// <returns></returns>
+        Task<CategoryResponse> UpdateAsync(int id, Category category);
+        /// <summary>
+        /// category 삭제
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<CategoryResponse> DeleteAsync(int id);
     }
 }
