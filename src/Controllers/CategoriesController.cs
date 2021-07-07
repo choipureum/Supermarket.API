@@ -45,7 +45,6 @@ namespace Supermarket.API.Controllers
             {
                 return BadRequest(result.Message);
             }
-
             var categoryResource = _mapper.Map<Category, CategoryResource>(result.Category);
             return Ok(categoryResource);
         }

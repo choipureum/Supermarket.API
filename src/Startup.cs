@@ -34,15 +34,17 @@ namespace Supermarket.API
             });
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
-
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             //Auto Mapper COnfigurations
-            var mappingConfig = new MapperConfiguration(mc =>
+            var mappingConfig = new MapperConfiguration(cfg =>
             {
-                mc.AddProfile(new ModelToResourceProfile());
+                cfg.AddProfile(new ModelToResourceProfile());
+                cfg.AddProfile(new ResourceToModelProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddMvc();
+            
         }
 
 
@@ -57,8 +59,6 @@ namespace Supermarket.API
             {
                 app.UseHsts();
             }
-
-        
             app.UseMvc();
         }
     }
