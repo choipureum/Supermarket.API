@@ -13,8 +13,8 @@ Navigate to https://localhost:5001/api/categories to check if the API is working
 Navigate to https://localhost:5001/swagger to check the API documentation.
 
 # Architecture
-'''
-D:.
+```
+Supermarket.API:.
 ├─.github
 │  └─ISSUE_TEMPLATE
 └─src
@@ -43,4 +43,4 @@ D:.
     ├─Resources
     ├─Services
     └─wwwroot
-'''
+```
