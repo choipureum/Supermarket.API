@@ -1,4 +1,4 @@
-# Supermarket.API - Extensions
+ï»¿# Supermarket.API - Extensions
 Simple RESTful API built with ASP.NET Core 2.1 to show how to create RESTful services using a decoupled, maintainable architecture. + extension function + UnitTest(XUnit)
 
 # Test
@@ -14,34 +14,34 @@ Navigate to https://localhost:5001/swagger to check the API documentation.
 
 # Architecture
 ```
-¦§¦¡.github
-¦¢  ¦¦¦¡ISSUE_TEMPLATE
-¦¦¦¡src
-    ¦§¦¡bin
-    ¦¢  ¦§¦¡Debug
-    ¦¢  ¦¢  ¦¦¦¡netcoreapp2.1
-    ¦¢  ¦¦¦¡Release
-    ¦¢      ¦¦¦¡netcoreapp2.1
-    ¦§¦¡Controllers
-    ¦§¦¡Domain
-    ¦¢  ¦§¦¡Models
-    ¦¢  ¦§¦¡Repositories
-    ¦¢  ¦¦¦¡Services
-    ¦¢      ¦¦¦¡Communication
-    ¦§¦¡Extensions
-    ¦§¦¡Mapping
-    ¦§¦¡obj
-    ¦¢  ¦§¦¡Debug
-    ¦¢  ¦¢  ¦¦¦¡netcoreapp2.1
-    ¦¢  ¦¦¦¡Release
-    ¦¢      ¦¦¦¡netcoreapp2.1
-    ¦§¦¡Persistence
-    ¦¢  ¦§¦¡Contexts
-    ¦¢  ¦¦¦¡Repositories
-    ¦§¦¡Properties
-    ¦§¦¡Resources
-    ¦§¦¡Services
-    ¦¦¦¡wwwroot
+â”œâ”€.github
+â”‚  â””â”€ISSUE_TEMPLATE
+â””â”€src
+    â”œâ”€bin
+    â”‚  â”œâ”€Debug
+    â”‚  â”‚  â””â”€netcoreapp2.1
+    â”‚  â””â”€Release
+    â”‚      â””â”€netcoreapp2.1
+    â”œâ”€Controllers
+    â”œâ”€Domain
+    â”‚  â”œâ”€Models
+    â”‚  â”œâ”€Repositories
+    â”‚  â””â”€Services
+    â”‚      â””â”€Communication
+    â”œâ”€Extensions
+    â”œâ”€Mapping
+    â”œâ”€obj
+    â”‚  â”œâ”€Debug
+    â”‚  â”‚  â””â”€netcoreapp2.1
+    â”‚  â””â”€Release
+    â”‚      â””â”€netcoreapp2.1
+    â”œâ”€Persistence
+    â”‚  â”œâ”€Contexts
+    â”‚  â””â”€Repositories
+    â”œâ”€Properties
+    â”œâ”€Resources
+    â”œâ”€Services
+    â””â”€wwwroot
 ```
 ## SwaggerUI
-<img src="/image/swagger_v1.JPG">
+<img src="./image/swagger_v1.JPG">
