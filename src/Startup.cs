@@ -94,6 +94,7 @@ namespace Supermarket.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.DocumentTitle = "Supermarket API";
             });
+            app.UseMvc();
 
         }
     }

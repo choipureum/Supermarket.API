@@ -6,11 +6,13 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Supermarket.API.Domain.Models;
 using Supermarket.API.Domain.Services;
 using Supermarket.API.Extensions;
 using Supermarket.API.Persistence.Contexts;
 using Supermarket.API.Resources;
+using Supermarket.API.Services;
 
 namespace Supermarket.API.Controllers
 {
@@ -20,11 +22,13 @@ namespace Supermarket.API.Controllers
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
+        private readonly ILogger<ProductsController> _logger;
 
-        public ProductsController(AppDbContext context, IProductService productService, IMapper mapper)
+        public ProductsController(AppDbContext context, IProductService productService, IMapper mapper, ILogger<ProductsController> logger)
         {
             _productService = productService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         // GET: api/Products
@@ -39,10 +43,6 @@ namespace Supermarket.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDetailAsync(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
             var result = await _productService.DetailAsync(id);
             var resource = _mapper.Map<Product, ProductResource>(result.Resource);
             return Ok(resource);
@@ -51,6 +51,10 @@ namespace Supermarket.API.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
             var product = _mapper.Map<SaveProductResource, Product>(resource);
             var result = await _productService.SaveAsync(product);
 
@@ -65,6 +69,10 @@ namespace Supermarket.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveProductResource resource)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
             var product = _mapper.Map<SaveProductResource, Product>(resource);
             var result = await _productService.UpdateAsync(id, product);
 
@@ -85,7 +93,6 @@ namespace Supermarket.API.Controllers
             {
                 return BadRequest(new ErrorResource(result.Message));
             }
-
             var productResource = _mapper.Map<Product, ProductResource>(result.Resource);
             return Ok(productResource);
         }

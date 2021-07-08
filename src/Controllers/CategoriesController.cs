@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Supermarket.API.Domain.Models;
 using Supermarket.API.Domain.Services;
 using Supermarket.API.Extensions;
@@ -17,11 +18,13 @@ namespace Supermarket.API.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
-    
-        public CategoriesController(ICategoryService categoryService,IMapper mapper)
+        private readonly ILogger<CategoriesController> _logger;
+
+        public CategoriesController(ICategoryService categoryService,IMapper mapper,ILogger<CategoriesController> logger)
         {
             _categoryService = categoryService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -34,10 +37,6 @@ namespace Supermarket.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDetailAsync(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState.GetErrorMessages());
-            }
             var result = await _categoryService.DetailAsync(id);
             var resources = _mapper.Map<Category, CategoryResource>(result.Resource);
             return Ok(resources);

@@ -16,32 +16,44 @@ Navigate to https://localhost:5001/swagger to check the API documentation.
 ```
 ├─.github
 │  └─ISSUE_TEMPLATE
-└─src
+├─image
+├─src
+│  ├─bin
+│  │  ├─Debug
+│  │  │  └─netcoreapp2.1
+│  │  └─Release
+│  │      └─netcoreapp2.1
+│  ├─Controllers
+│  ├─Domain
+│  │  ├─Models
+│  │  ├─Repositories
+│  │  └─Services
+│  │      └─Communication
+│  ├─Extensions
+│  ├─Mapping
+│  ├─obj
+│  │  ├─Debug
+│  │  │  └─netcoreapp2.1
+│  │  └─Release
+│  │      └─netcoreapp2.1
+│  ├─Persistence
+│  │  ├─Contexts
+│  │  └─Repositories
+│  ├─Properties
+│  ├─Resources
+│  ├─Services
+│  └─wwwroot
+└─SupermarketAPI_Test
     ├─bin
     │  ├─Debug
     │  │  └─netcoreapp2.1
     │  └─Release
     │      └─netcoreapp2.1
-    ├─Controllers
-    ├─Domain
-    │  ├─Models
-    │  ├─Repositories
-    │  └─Services
-    │      └─Communication
-    ├─Extensions
-    ├─Mapping
-    ├─obj
-    │  ├─Debug
-    │  │  └─netcoreapp2.1
-    │  └─Release
-    │      └─netcoreapp2.1
-    ├─Persistence
-    │  ├─Contexts
-    │  └─Repositories
-    ├─Properties
-    ├─Resources
-    ├─Services
-    └─wwwroot
+    └─obj
+        ├─Debug
+        │  └─netcoreapp2.1
+        └─Release
+            └─netcoreapp2.1
 ```
 ## SwaggerUI
 <img src="https://raw.githubusercontent.com/choipureum/Supermarket.API/main/image/swagger_V1.JPG">
