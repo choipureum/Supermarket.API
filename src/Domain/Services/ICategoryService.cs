@@ -14,7 +14,12 @@ namespace Supermarket.API.Domain.Services
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Category>> ListAsync();
-
+        /// <summary>
+        /// 상세조회 : async
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<CategoryResponse> DetailAsync(int id);
         /// <summary>
         /// category 등록
         /// </summary>

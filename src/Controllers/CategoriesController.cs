@@ -31,6 +31,18 @@ namespace Supermarket.API.Controllers
             var resources = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryResource>>(categories);
             return resources;
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDetailAsync(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+            var result = await _categoryService.DetailAsync(id);
+            var resources = _mapper.Map<Category, CategoryResource>(result.Resource);
+            return Ok(resources);
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
         {

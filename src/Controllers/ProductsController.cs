@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Supermarket.API.Domain.Models;
 using Supermarket.API.Domain.Services;
+using Supermarket.API.Extensions;
 using Supermarket.API.Persistence.Contexts;
 using Supermarket.API.Resources;
 
@@ -33,6 +34,18 @@ namespace Supermarket.API.Controllers
             var products = await _productService.ListAsync();
             var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return resources;
+        }
+        //Get: api/Products/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDetailAsync(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+            var result = await _productService.DetailAsync(id);
+            var resource = _mapper.Map<Product, ProductResource>(result.Resource);
+            return Ok(resource);
         }
         // POST: api/Products
         [HttpPost]
