@@ -6,12 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Supermarket.API.Domain.Repositories;
 using Supermarket.API.Domain.Services;
 using Supermarket.API.Mapping;
 using Supermarket.API.Persistence.Contexts;
 using Supermarket.API.Persistence.Repositories;
 using Supermarket.API.Services;
+using System;
 
 namespace Supermarket.API
 {
@@ -47,6 +49,26 @@ namespace Supermarket.API
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+            // Register the Swagger generator, defining 1 or more Swagger documents  
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Supermarket API",
+                    Description = "Simple RESTful API built with ASP.NET Core 3.1 to show how to create RESTful services using a decoupled, maintainable architecture.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "pureum",
+                        Url = new Uri("https://github.com/choipureum")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT",
+                    },
+
+                });          
+            });
         }
 
 
@@ -61,7 +83,18 @@ namespace Supermarket.API
             {
                 app.UseHsts();
             }
-            app.UseMvc();
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.DocumentTitle = "Supermarket API";
+            });
+
         }
     }
 }

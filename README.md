@@ -13,4 +13,35 @@ Navigate to http://localhost:5000/api/categories to check if the API is working.
 Navigate to https://localhost:5001/swagger to check the API documentation.
 
 # Architecture
-
+```
+戍式.github
+弛  戌式ISSUE_TEMPLATE
+戌式src
+    戍式bin
+    弛  戍式Debug
+    弛  弛  戌式netcoreapp2.1
+    弛  戌式Release
+    弛      戌式netcoreapp2.1
+    戍式Controllers
+    戍式Domain
+    弛  戍式Models
+    弛  戍式Repositories
+    弛  戌式Services
+    弛      戌式Communication
+    戍式Extensions
+    戍式Mapping
+    戍式obj
+    弛  戍式Debug
+    弛  弛  戌式netcoreapp2.1
+    弛  戌式Release
+    弛      戌式netcoreapp2.1
+    戍式Persistence
+    弛  戍式Contexts
+    弛  戌式Repositories
+    戍式Properties
+    戍式Resources
+    戍式Services
+    戌式wwwroot
+```
+## SwaggerUI
+<img src="/image/swagger_v1.JPG">
