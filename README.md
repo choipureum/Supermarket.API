@@ -44,4 +44,4 @@ Navigate to https://localhost:5001/swagger to check the API documentation.
     └─wwwroot
 ```
 ## SwaggerUI
-<img src="./image/swagger_v1.JPG">
+<img src="https://raw.githubusercontent.com/choipureum/Supermarket.API/main/image/swagger_V1.JPG">
