@@ -8,7 +8,7 @@ First, install .NET Core 2.2. Then, open the terminal or command prompt at the A
 dotnet restore
 dotnet run
 ```
-Navigate to https://localhost:5001/api/categories to check if the API is working. If you see a HTTPS security error, just add an exception to see the results.
+Navigate to http://localhost:5000/api/categories to check if the API is working. If you see a HTTPS security error, just add an exception to see the results.
 
 Navigate to https://localhost:5001/swagger to check the API documentation.
 
