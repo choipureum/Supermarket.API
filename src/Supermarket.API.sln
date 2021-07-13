@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1300
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supermarket.API", "Supermarket.API.csproj", "{C23011E9-EDE8-4698-9F77-F40838CAB189}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketAPI_Test", "..\SupermarketAPI_Test\SupermarketAPI_Test.csproj", "{2BE93421-3867-47E0-BE3E-E852741E64F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.API.Integration.Tests", "..\Supermarket.API.Integration.Tests\Supermarket.API.Integration.Tests.csproj", "{D9143A0B-54FA-4726-991E-76C29DADE27F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C23011E9-EDE8-4698-9F77-F40838CAB189}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C23011E9-EDE8-4698-9F77-F40838CAB189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C23011E9-EDE8-4698-9F77-F40838CAB189}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2BE93421-3867-47E0-BE3E-E852741E64F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BE93421-3867-47E0-BE3E-E852741E64F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BE93421-3867-47E0-BE3E-E852741E64F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BE93421-3867-47E0-BE3E-E852741E64F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9143A0B-54FA-4726-991E-76C29DADE27F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9143A0B-54FA-4726-991E-76C29DADE27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9143A0B-54FA-4726-991E-76C29DADE27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9143A0B-54FA-4726-991E-76C29DADE27F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
