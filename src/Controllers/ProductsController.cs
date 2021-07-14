@@ -17,6 +17,7 @@ using Supermarket.API.Services;
 namespace Supermarket.API.Controllers
 {
     [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -49,6 +50,8 @@ namespace Supermarket.API.Controllers
         }
         // POST: api/Products
         [HttpPost]
+        [ProducesResponseType(typeof(ProductResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
             if (!ModelState.IsValid)
@@ -67,6 +70,8 @@ namespace Supermarket.API.Controllers
             return Ok(productResource);
         }
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ProductResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveProductResource resource)
         {
             if (!ModelState.IsValid)
@@ -85,6 +90,8 @@ namespace Supermarket.API.Controllers
             return Ok(productResource);
         }
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(ProductResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _productService.DeleteAsync(id);

@@ -13,6 +13,7 @@ using Supermarket.API.Resources;
 namespace Supermarket.API.Controllers
 {
     [Route("/api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
@@ -28,6 +29,7 @@ namespace Supermarket.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<CategoryResource>), 200)]
         public async Task<IEnumerable<CategoryResource>> GetAllAsync()
         {
             var categories = await _categoryService.ListAsync();
@@ -35,14 +37,17 @@ namespace Supermarket.API.Controllers
             return resources;
         }
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(CategoryResource), 200)]
         public async Task<IActionResult> GetDetailAsync(int id)
         {
             var result = await _categoryService.DetailAsync(id);
-            var resources = _mapper.Map<Category, CategoryResource>(result.Resource);
-            return Ok(resources);
+            var resource = _mapper.Map<Category, CategoryResource>(result.Resource);
+            return Ok(resource);
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(CategoryResource), 201)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PostAsync([FromBody] SaveCategoryResource resource)
         {
             if(!ModelState.IsValid)
@@ -60,6 +65,8 @@ namespace Supermarket.API.Controllers
             return Ok(categoryResource);
         }
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(CategoryResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> PutAsync(int id,[FromBody] SaveCategoryResource resource)
         {
             if(!ModelState.IsValid)
@@ -77,6 +84,8 @@ namespace Supermarket.API.Controllers
             return Ok(categoryResource);
         }
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(CategoryResource), 200)]
+        [ProducesResponseType(typeof(ErrorResource), 400)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await _categoryService.DeleteAsync(id);
