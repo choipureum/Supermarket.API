@@ -32,7 +32,10 @@ namespace Supermarket.API.Controllers
             _logger = logger;
         }
 
-        // GET: api/Products
+        /// <summary>
+        /// Gets the ProductList <see cref="IEnumerable{ProductResource}"/> instance from the given assembly.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IEnumerable<ProductResource>> ListAsync()
         {
@@ -40,7 +43,12 @@ namespace Supermarket.API.Controllers
             var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return resources;
         }
-        //Get: api/Products/{id}
+
+        /// <summary>
+        /// Gets the ProductDetail <see cref="ProductResource"/> instance from the given assembly.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDetailAsync(int id)
         {
@@ -48,7 +56,14 @@ namespace Supermarket.API.Controllers
             var resource = _mapper.Map<Product, ProductResource>(result.Resource);
             return Ok(resource);
         }
-        // POST: api/Products
+
+        /// <summary>
+        /// Save the ProductInfo 
+        /// <see cref="ProductResource"/> 200
+        /// <see cref="ErrorResource"/> 400
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ProductResource), 201)]
         [ProducesResponseType(typeof(ErrorResource), 400)]
@@ -69,6 +84,14 @@ namespace Supermarket.API.Controllers
             var productResource = _mapper.Map<Product, ProductResource>(result.Resource);
             return Ok(productResource);
         }
+
+        /// <summary>
+        /// Update the ProductInfo 
+        /// <see cref="ProductResource"/> 200
+        /// <see cref="ErrorResource"/> 400
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ProductResource), 201)]
         [ProducesResponseType(typeof(ErrorResource), 400)]
@@ -89,6 +112,14 @@ namespace Supermarket.API.Controllers
             var productResource = _mapper.Map<Product,ProductResource>(result.Resource);
             return Ok(productResource);
         }
+
+        /// <summary>
+        /// Delete the ProductInfo 
+        /// <see cref="ProductResource"/> 200
+        /// <see cref="ErrorResource"/> 400
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(ProductResource), 200)]
         [ProducesResponseType(typeof(ErrorResource), 400)]
